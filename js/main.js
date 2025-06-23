@@ -1,4 +1,4 @@
-const API_URL = window.API_URL || 'http://localhost:5000/api/absen';
+const API_URL = window.API_URL || 'https://davidnfy.github.io/Absen-Seminar/';
 
 // DOM Elements
 const absenForm = document.getElementById('absenForm');
