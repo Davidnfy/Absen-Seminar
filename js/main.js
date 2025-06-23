@@ -56,9 +56,11 @@ function renderTable(data) {
 // Handle form submit
 absenForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    console.log('Form submit triggered');
     
     const nama = namaInput.value.trim();
     const jenis_kelamin = document.querySelector('input[name="jenisKelamin"]:checked').value;
+    console.log('Nama:', nama, 'Jenis Kelamin:', jenis_kelamin);
     
     if (!nama) {
         alert('Nama tidak boleh kosong');
@@ -67,6 +69,7 @@ absenForm.addEventListener('submit', async (e) => {
     
     try {
         if (currentEditId) {
+            console.log('Updating data with id:', currentEditId);
             // Update data
             await fetch(`${API_URL}/${currentEditId}`, {
                 method: 'PUT',
@@ -76,6 +79,7 @@ absenForm.addEventListener('submit', async (e) => {
                 body: JSON.stringify({ nama, jenis_kelamin }),
             });
         } else {
+            console.log('Adding new data');
             // Tambah data baru
             await fetch(API_URL, {
                 method: 'POST',
