@@ -7,7 +7,11 @@ const absenRoutes = require('./absenRoutes');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: 'https://davidnfy.github.io',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
+}));
 app.use(express.json());
 
 // Routes
